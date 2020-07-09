@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">BelajarAndroid</string>
+    <string-array name="Roles">
+        <item></item>
+        <item>Admin</item>
+        <item>User</item>
+</string-array>
 </resources>

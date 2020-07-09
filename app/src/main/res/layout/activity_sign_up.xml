@@ -1,10 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".tab.SignUp">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="97dp"
+        android:layout_marginBottom="25dp"
+        android:text="SIGN UP"
+        android:textColor="@color/Black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/textusernamesu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/textusernamesu"
+        android:layout_width="206dp"
+        android:layout_height="0dp"
+        android:drawableStart="@drawable/ic_baseline_person_24"
+        android:drawablePadding="5dp"
+        android:hint="username"
+        android:paddingLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textpasswordsu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:ignore="MissingConstraints" />
+
+
+    <EditText
+        android:id="@+id/textpasswordsu"
+        android:layout_width="206dp"
+        android:layout_height="0dp"
+        android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+        android:drawablePadding="5dp"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textpasswordconf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textusernamesu"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/textpasswordconf"
+        android:layout_width="206dp"
+        android:layout_height="0dp"
+        android:drawablePadding="5dp"
+        android:hint="retype password"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textemail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textpasswordsu"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/textemail"
+        android:layout_width="206dp"
+        android:layout_height="0dp"
+        android:drawablePadding="5dp"
+        android:hint="email"
+        android:paddingLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textpasswordconf"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/textname"
+        android:layout_width="206dp"
+        android:layout_height="0dp"
+        android:drawablePadding="5dp"
+        android:hint="name"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textemail"
+        tools:ignore="MissingConstraints" />
+
+
+    <Spinner
+        android:id="@+id/roles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:entries="@array/Roles"
+        app:layout_constraintStart_toStartOf="@+id/textname"
+        app:layout_constraintTop_toBottomOf="@+id/textname" />
+
+    <Button
+        android:id="@+id/buttonloginsu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:background="@color/PowderBlue"
+        android:text="Log In"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonsignupsu"
+        app:layout_constraintEnd_toStartOf="@+id/buttonsignupsu"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonsignupsu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="3dp"
+
+        android:background="@color/DodgerBlue"
+        android:text="Sign Up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonloginsu"
+        app:layout_constraintTop_toBottomOf="@+id/radio"
+        tools:ignore="MissingConstraints" />
+
+
+    <RadioGroup
+        android:id="@+id/radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/roles"
+        app:layout_constraintStart_toStartOf="@+id/roles"
+        app:layout_constraintTop_toBottomOf="@+id/roles">
+
+        <RadioButton
+            android:id="@+id/aktif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Active"
+            tools:layout_editor_absoluteX="209dp"
+            tools:layout_editor_absoluteY="452dp" />
+
+        <RadioButton
+            android:id="@+id/nonaktif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not Active"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="452dp" />
+
+    </RadioGroup>
+
+
+    <!--    <RadioButton-->
+    <!--        android:id="@+id/radioButton2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="not active"-->
+    <!--        tools:layout_editor_absoluteX="213dp"-->
+    <!--        tools:layout_editor_absoluteY="448dp" />-->
+
+    <!--    <RadioButton-->
+    <!--        android:id="@+id/radioButton"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="active"-->
+    <!--        tools:layout_editor_absoluteX="102dp"-->
+    <!--        tools:layout_editor_absoluteY="448dp" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

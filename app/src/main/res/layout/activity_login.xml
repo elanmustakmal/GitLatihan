@@ -1,143 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".tab.Login">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="203dp"
+        android:layout_marginBottom="40dp"
 
-    <LinearLayout
-        android:id="@+id/rellay1"
-        android:background="@color/White"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:padding="10dp"
+        android:text="LOGIN"
+        android:textColor="@color/Black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/textusername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/textusername"
+        android:layout_width="206dp"
+        android:layout_height="0dp"
+        android:drawableStart="@drawable/ic_baseline_person_24"
+        android:drawablePadding="5dp"
+        android:hint="username"
+        android:paddingLeft="10dp"
 
-        <Button
-            android:backgroundTint="@color/Black"
-            android:background="@drawable/ic_baseline_chevron_left_24"
-            android:layout_width="40dp"
-            android:layout_height="40dp"/>
-        <TextView
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:text="Login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        app:layout_constraintBottom_toTopOf="@+id/textpassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/rellay2"
-        android:background="@color/White"
-        android:padding="10dp"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:paddingLeft="10dp"
-            android:textStyle="bold"
-            android:textSize="25dp"
-            android:text="Welcome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <ImageView
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_account_circle_24"
-            android:layout_width="70dp"
-            android:layout_height="70dp"/>
+    <EditText
+        android:id="@+id/textpassword"
+        android:layout_width="206dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+        android:drawablePadding="5dp"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonsignup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textusername" />
 
+    <Button
+        android:id="@+id/buttonlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:background="@color/PowderBlue"
+        android:text="Log In"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonsignup"
+        app:layout_constraintEnd_toStartOf="@+id/buttonsignup"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/username"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <EditText
-                android:paddingLeft="9dp"
-                android:drawablePadding="5dp"
-                android:background="@drawable/background_form"
-                android:drawableStart="@drawable/ic_baseline_person_24"
-                android:hint="Username"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"/>
-        </LinearLayout>
+    <Button
+        android:id="@+id/buttonsignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
 
-        <LinearLayout
-            android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <EditText
-                android:paddingLeft="9dp"
-                android:drawablePadding="5dp"
-                android:background="@drawable/background_form"
-                android:layout_marginTop="5dp"
-                android:drawableStart="@drawable/ic_baseline_vpn_key_24"
-                android:hint="PAssword"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"/>
-        </LinearLayout>
-    </LinearLayout>
+        android:layout_marginBottom="262dp"
+        android:background="@color/DodgerBlue"
+        android:text="Sign Up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonlogin"
+        app:layout_constraintTop_toBottomOf="@+id/textpassword" />
 
-
-
-
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content">-->
-
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="Login" />-->
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
-
-    <LinearLayout
-        android:id="@+id/rellay3"
-        android:paddingTop="5dp"
-        android:background="@color/Black"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
-        <LinearLayout
-            android:id="@+id/tombollogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <Button
-                android:paddingLeft="9dp"
-                android:drawablePadding="5dp"
-                android:background="@drawable/background_form"
-                android:hint="Log In"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/tombolsignin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/background_form"
-                android:drawablePadding="5dp"
-                android:hint="Sign In"
-                android:paddingLeft="9dp" />
-        </LinearLayout>
-    </LinearLayout>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
