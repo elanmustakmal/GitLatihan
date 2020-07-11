@@ -3,5 +3,13 @@
         <item></item>
         <item>Admin</item>
         <item>User</item>
-</string-array>
+    </string-array>
+    <string name="invalid_name">Nama tidak boleh kosong!</string>
+    <string name="invalid_password">Password minimal 6 digit</string>
+    <string name="invalid_confirm_password">Password tidak sesuai</string>
+    <string name="invalid_email">Email tidak valid</string>
+    <string name="invalid_nama">Nama tidak boleh kosong</string>
+    <string name="password_Kosong">Password tidak boleh kosong</string>
+    <string name="konfirmasi_Kosong">Konfirmasi password anda</string>
+    <string name="email_Kosong">Email tidak boleh kosong</string>
 </resources>
