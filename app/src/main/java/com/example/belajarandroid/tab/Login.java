@@ -19,6 +19,7 @@ import com.example.belajarandroid.model.LoginBody;
 import com.example.belajarandroid.model.LoginResult;
 import com.example.belajarandroid.rest.ApiClient;
 import com.example.belajarandroid.rest.ApiInterface;
+import com.example.belajarandroid.utils.AppService;
 import com.example.belajarandroid.utils.Utility;
 
 
@@ -96,7 +97,8 @@ public class Login extends AppCompatActivity {
                 try {
                     if (response.body().isSuccess()) {
                         Log.e("TAG", "Login Success" + response.body().toString());
-                        Intent mainIntent = new Intent(Login.this, MainActivity.class);
+                        AppService.setToken("Bearer " + response.body().getToken());
+                        Intent mainIntent = new Intent(Login.this, RecyclerViewBuku.class);
                         startActivity(mainIntent);
                         finish();
 

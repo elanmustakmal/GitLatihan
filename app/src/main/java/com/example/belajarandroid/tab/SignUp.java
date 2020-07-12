@@ -62,26 +62,6 @@ public class SignUp extends AppCompatActivity {
 
     AwesomeValidation awesomeValidation;
 
-    public boolean harusDiisi(EditText editText) {
-
-        String text = editText.getText().toString().trim();
-        editText.setError(null);
-
-        // length 0 means there is no text
-        if (text.length() == 0) {
-            editText.setError(Html.fromHtml("<font color='red'>Input tidak boleh kosong</font>"));
-            return false;
-        }
-
-        return true;
-    }
-
-
-    public Boolean daftar(String username, String password, String email, String name, String roles, String aktif, String nonaktif) {
-
-        return daftar(username, password, email, name, roles, aktif, nonaktif);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
