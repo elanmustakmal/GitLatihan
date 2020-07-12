@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
@@ -35,7 +36,8 @@ public class Login extends AppCompatActivity {
 
     private Retrofit retrofit;
     EditText username, password;
-    Button btnlogin, btnsignup;
+    Button btnlogin;
+    TextView btnsignup;
 
     AwesomeValidation awesomeValidation;
 
@@ -50,7 +52,7 @@ public class Login extends AppCompatActivity {
         username = (EditText) findViewById(R.id.textusername);
         password = (EditText) findViewById(R.id.textpassword);
         btnlogin = (Button) findViewById(R.id.buttonlogin);
-        btnsignup = (Button) findViewById(R.id.buttonsignup);
+        btnsignup =  findViewById(R.id.buttonsignup);
 
 
         btnsignup.setOnClickListener(new View.OnClickListener() {

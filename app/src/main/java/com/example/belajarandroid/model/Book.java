@@ -7,6 +7,7 @@ public class Book {
     private String penulis;
     private int harga;
     private int userid;
+    private String thumb;
 
     public Book() {
     }
@@ -63,5 +64,23 @@ public class Book {
 
     public void setUserid(int userid) {
         this.userid = userid;
+    }
+
+    public String getThumb() {
+        return thumb;
+    }
+
+    public void setThumb(String thumb) {
+        this.thumb = thumb;
+    }
+
+    public Book(int id, String judul, String penerbit, String penulis, int harga, int userid, String thumb) {
+        this.id = id;
+        this.judul = judul;
+        this.penerbit = penerbit;
+        this.penulis = penulis;
+        this.harga = harga;
+        this.userid = userid;
+        this.thumb = thumb;
     }
 }

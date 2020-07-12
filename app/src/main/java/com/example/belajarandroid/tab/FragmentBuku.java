@@ -106,7 +106,7 @@ public class FragmentBuku extends Fragment {
             bookAdapter.setId(books.getId());
             bookAdapter.setJudul(books.getJudul());
             bookAdapter.setPenulis(books.getPenulis());
-            bookAdapter.setThumb(R.mipmap.kepalaelan);
+            bookAdapter.setThumb(books.getThumb());
             bookAdapterList.add(bookAdapter);
         }
 

@@ -5,26 +5,26 @@
     android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/backgroundkeren"
     android:orientation="vertical"
     tools:context=".tab.Login">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       >
+        android:orientation="vertical"
+        android:paddingTop="150dp"
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="200dp"
-            android:text="LOGIN"
-            android:paddingBottom="20dp"
-            android:textAlignment="center"
-            android:textColor="@color/Black"
-            android:textSize="30dp"
-            tools:layout_editor_absoluteX="163dp"
-            tools:layout_editor_absoluteY="203dp" />
+        >
+
+        <ImageView
+            android:layout_width="215dp"
+            android:layout_height="185dp"
+            android:layout_gravity="center"
+            android:outlineSpotShadowColor="@color/White"
+            android:src="@drawable/ic_baseline_cloud_24"
+            android:tint="@color/White" />
+
 
     </LinearLayout>
 
@@ -32,61 +32,94 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/username_text_input_layout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
 
         <EditText
             android:id="@+id/textusername"
-            android:layout_width="206dp"
-            android:layout_height="59dp"
+            android:layout_width="256dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/White"
             android:drawableStart="@drawable/ic_baseline_person_24"
             android:drawablePadding="5dp"
+            android:drawableTint="@color/White"
             android:hint="username"
-            android:gravity=""
             android:paddingLeft="10dp"
+            android:textColorHint="@color/White"
             tools:layout_editor_absoluteX="103dp"
             tools:layout_editor_absoluteY="283dp" />
 
         <EditText
-        android:id="@+id/textpassword"
-        android:layout_width="206dp"
-        android:layout_height="59dp"
-        android:drawableStart="@drawable/ic_baseline_vpn_key_24"
-        android:drawablePadding="5dp"
-        android:hint="password"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="342dp" />
+            android:id="@+id/textpassword"
+            android:layout_width="256dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/White"
+            android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+            android:drawablePadding="5dp"
+            android:drawableTint="@color/White"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/White"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="342dp" />
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonlogin"
+            android:layout_width="237dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@color/PowderBlue"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="10dp"
+            android:text="Log In"
+            tools:layout_editor_absoluteX="102dp"
+            tools:layout_editor_absoluteY="421dp" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/buttonlogin"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/PowderBlue"
-                android:text="Log In"
+                android:layout_marginLeft="100dp"
+                android:text="don't have any account?"
+                android:textColor="@color/White"
+                android:textSize="12dp" />
 
-                tools:layout_editor_absoluteX="102dp"
-                tools:layout_editor_absoluteY="421dp" />
-
-    <Button
-        android:id="@+id/buttonsignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/DodgerBlue"
-        android:text="Sign Up"
-        android:layout_marginLeft="30dp"
-        tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="421dp" />
+            <TextView
+                android:id="@+id/buttonsignup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:clickable="true"
+                android:text="Sign Up Now"
+                android:textAlignment="center"
+                android:textColor="@color/DodgerBlue"
+                android:textSize="12dp" />
 
         </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

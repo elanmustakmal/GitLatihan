@@ -8,7 +8,7 @@ public class BookAdapter implements Parcelable {
     private int id;
     private String judul;
     private String penulis;
-    private int thumb;
+    private String thumb;
 
     public BookAdapter() {
     }
@@ -17,7 +17,7 @@ public class BookAdapter implements Parcelable {
         id = in.readInt();
         judul = in.readString();
         penulis = in.readString();
-        thumb = in.readInt();
+        thumb = in.readString();
     }
 
     public static final Creator CREATOR = new Creator() {
@@ -42,7 +42,7 @@ public class BookAdapter implements Parcelable {
         dest.writeInt(id);
         dest.writeString(judul);
         dest.writeString(penulis);
-        dest.writeInt(thumb);
+        dest.writeString(thumb);
 
     }
 
@@ -70,13 +70,9 @@ public class BookAdapter implements Parcelable {
         this.penulis = penulis;
     }
 
-    public int getThumb() {
-        return thumb;
-    }
+    public String getThumb() { return thumb; }
 
-    public void setThumb(int thumb) {
-        this.thumb = thumb;
-    }
+    public void setThumb(String thumb) { this.thumb = thumb; }
 
     public static Creator getCREATOR() {
         return CREATOR;
