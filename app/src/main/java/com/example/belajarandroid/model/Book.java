@@ -74,7 +74,7 @@ public class Book {
         this.thumb = thumb;
     }
 
-    public Book(int id, String judul, String penerbit, String penulis, int harga, int userid, String thumb) {
+    public Book(String judul, String penerbit, String penulis, int harga, int userid) {
         this.id = id;
         this.judul = judul;
         this.penerbit = penerbit;

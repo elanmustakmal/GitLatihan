@@ -4,7 +4,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/DarkGray</item>
         <item name="colorPrimaryDark">@color/Black</item>
-        <item name="colorAccent">@color/White</item>
+        <item name="colorAccent">@color/Black</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -13,7 +13,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/DarkGray</item>
         <item name="colorPrimaryDark">@color/Black</item>
-        <item name="colorAccent">@color/White</item>
+        <item name="colorAccent">@color/Black</item>
     </style>
 
 

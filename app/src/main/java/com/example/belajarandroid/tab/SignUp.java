@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
@@ -14,7 +15,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -30,6 +33,7 @@ import com.example.belajarandroid.model.SignUpResult;
 import com.example.belajarandroid.rest.ApiClient;
 import com.example.belajarandroid.rest.ApiInterface;
 import com.example.belajarandroid.utils.Utility;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
@@ -54,7 +58,7 @@ import static com.example.belajarandroid.R.string.invalid_name;
 public class SignUp extends AppCompatActivity {
 
     private Retrofit retrofit;
-    EditText username, password, passwordConf, email, name;
+    TextInputLayout username, password, passwordConf, email, name;
     Button btnsignup, btnlogin;
     Spinner roles;
     RadioButton aktif, nonaktif;
@@ -70,16 +74,22 @@ public class SignUp extends AppCompatActivity {
         Utility.askPermission(this);
         retrofit = ApiClient.initializeRetrofit();
 
-        username = (EditText) findViewById(R.id.textusernamesu);
-        password = (EditText) findViewById(R.id.textpasswordsu);
-        passwordConf = (EditText) findViewById(R.id.textpasswordconf);
-        email = (EditText) findViewById(R.id.textemail);
-        name = (EditText) findViewById(R.id.textname);
-        btnsignup = (Button) findViewById(R.id.buttonsignupsu);
-        btnlogin = (Button) findViewById(R.id.buttonloginsu);
-        roles = (Spinner) findViewById(R.id.roles);
-        aktif = (RadioButton) findViewById(R.id.aktif);
-        nonaktif = (RadioButton) findViewById(R.id.nonaktif);
+        username =  findViewById(R.id.textusernamesu);
+        password =  findViewById(R.id.textpasswordsu);
+        passwordConf =  findViewById(R.id.textpasswordconf);
+        email =  findViewById(R.id.textemail);
+        name =  findViewById(R.id.textname);
+        btnsignup =  findViewById(R.id.buttonsignupsu);
+        btnlogin =  findViewById(R.id.buttonloginsu);
+        roles =  findViewById(R.id.roles);
+        aktif =  findViewById(R.id.aktif);
+        nonaktif =  findViewById(R.id.nonaktif);
+
+        RelativeLayout relativeLayout = findViewById(R.id.signup);
+        AnimationDrawable animationDrawable =(AnimationDrawable) relativeLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
 
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
@@ -89,9 +99,6 @@ public class SignUp extends AppCompatActivity {
 
         awesomeValidation.addValidation(SignUp.this, R.id.textpasswordsu,
                 RegexTemplate.NOT_EMPTY, R.string.password_Kosong);
-
-//        awesomeValidation.addValidation(SignUp.this, R.id.textpasswordsu,
-//                "4", R.string.invalid_password);
 
         awesomeValidation.addValidation(SignUp.this, R.id.textpasswordconf,
                 RegexTemplate.NOT_EMPTY, R.string.konfirmasi_Kosong);
@@ -160,8 +167,8 @@ public class SignUp extends AppCompatActivity {
                     List<String> roles1 = new ArrayList<>();
                     roles1.add(roles.getSelectedItem().toString());
 
-                    SignUpSubmit(username.getText().toString(), password.getText().toString(),
-                            email.getText().toString(), name.getText().toString(), roles1, rbaktif);
+                    SignUpSubmit(username.getEditText().getText().toString(), password.getEditText().getText().toString(),
+                            email.getEditText().getText().toString(), name.getEditText().getText().toString(), roles1, rbaktif);
 
 
                 } else {

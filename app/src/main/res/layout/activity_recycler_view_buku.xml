@@ -1,95 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tab.RecyclerViewBuku">
+    tools:context=".tab.RecyclerViewBuku"
+    android:background="@drawable/gradient_list">
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/ibuk2"
+        android:alpha="0.5"
+        />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:padding="20dp"
-        android:text="Daftar Buku"
-        android:textColor="@color/DarkGray"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/content" />
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="400dp"
+        android:fontFamily="@font/clicker_script"
+        android:text="e book"
+        android:alpha="0.4"
+        android:textColor="@color/White"
+        android:textSize="50dp"
+        android:textStyle="bold" />
 
     <FrameLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        android:layout_above="@id/bottom_navigation"
+       />
 
-
-    </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/btnhome"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/rumahcantik" />
-
-        <ImageButton
-            android:id="@+id/btnadd"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/adede" />
+        android:background="@color/WhiteSmoke"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation" />
 
 
-    </LinearLayout>
 
-    <!--    <LinearLayout-->
-    <!--        android:id="@+id/linearLayout"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_gravity="bottom"-->
-    <!--        android:layout_marginTop="32dp"-->
-    <!--        android:orientation="horizontal"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/textView"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="@+id/textView">-->
-
-    <!--        <ImageButton-->
-    <!--            android:id="@+id/btnhome"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_weight="1"-->
-    <!--            android:src="@drawable/rumahcantik" />-->
-
-    <!--        <ImageButton-->
-    <!--            android:id="@+id/btnadd"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_weight="1"-->
-    <!--            android:src="@drawable/adede" />-->
-
-    <!--    </LinearLayout>-->
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

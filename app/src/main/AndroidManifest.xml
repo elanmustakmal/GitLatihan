@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".tab.RecyclerViewBuku">
 
-        </activity>
         <activity android:name=".view.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".tab.Login" />
         <activity android:name=".tab.SignUp" />
+        <activity android:name=".tab.RecyclerViewBuku"/>
         <activity android:name=".MainActivity" >
 
         </activity>

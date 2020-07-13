@@ -43,9 +43,11 @@ public class FragmentBuku extends Fragment {
     protected Context context;
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
     }
 
@@ -73,6 +75,7 @@ public class FragmentBuku extends Fragment {
         memberListAdapter = new MemberListAdapter();
         listMember.setLayoutManager(linearLayoutManager);
         listMember.setAdapter(memberListAdapter);
+
     }
 
     private void initRetrofit() {
@@ -112,6 +115,7 @@ public class FragmentBuku extends Fragment {
 
         memberListAdapter.addAll(bookAdapterList);
     }
+
 
 
 }

@@ -4,12 +4,15 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.example.belajarandroid.MainActivity;
 import com.example.belajarandroid.R;
@@ -26,28 +29,19 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
-//        inisialisasi object
-        imgLogo = (ImageView) findViewById(R.id.splash_imgLogo);
-
-//        sumber animasi
-        Animation animation1 = AnimationUtils.loadAnimation(this, R.anim.fadein);
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.fadeout);
-
-//        implementasi
-
-        imgLogo.startAnimation(animation);
-        imgLogo.startAnimation(animation1);
-
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                LinearLayout linearLayout = findViewById(R.id.splash);
+                AnimationDrawable animationDrawable =(AnimationDrawable) linearLayout.getBackground();
+                animationDrawable.setEnterFadeDuration(1000);
+                animationDrawable.setExitFadeDuration(1000);
+                animationDrawable.start();
                 Intent panggil = new Intent(SplashScreen.this, Login.class);
                 startActivity(panggil);
                 finish();
 
             }
-        }, 5000);
+        }, 3000);
     }
 }

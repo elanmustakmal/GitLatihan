@@ -5,7 +5,7 @@ public class LoginBody {
     private String username;
     private String password;
 
-    public LoginBody() {
+    public LoginBody(String judul, String penerbit, String penulis, String tahun, String harga) {
     }
 
     public LoginBody(String username, String password) {

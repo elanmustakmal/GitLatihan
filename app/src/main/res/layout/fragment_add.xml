@@ -1,14 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragmentadd"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".tab.AddFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/haloblank"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="Masukkan Data Buku"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        />
 
-</FrameLayout>
+    <FrameLayout
+        android:id="@+id/frameadd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<!--        android:padding="10dp"-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="595dp"
+            android:layout_gravity="bottom"
+            android:background="@color/White"
+            android:orientation="vertical"
+            android:padding="70dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textjudulbuku"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/Black"
+                app:errorEnabled="true"
+                app:startIconTint="@color/Black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Black"
+                    android:hint="Judul Buku"
+                    android:inputType="text"
+                    android:textColor="@color/Black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textpenulis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/Black"
+                app:boxBackgroundColor="@color/Black"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Black"
+                    android:hint="Penulis"
+                    android:inputType="text"
+                    android:textColor="@color/Black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textpenerbit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/Black"
+                app:boxBackgroundColor="@color/Black"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Black"
+                    android:hint="Penerbit"
+                    android:inputType="text"
+                    android:textColor="@color/Black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/texttahun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/Black"
+                app:counterEnabled="true"
+                app:counterMaxLength="4"
+                app:errorEnabled="true"
+                app:startIconTint="@color/Black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Black"
+                    android:hint="Tahun"
+                    android:inputType="number"
+                    android:textColor="@color/Black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/harga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/Black"
+                app:errorEnabled="true"
+                app:startIconTint="@color/Black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Black"
+                    android:hint="Harga"
+                    android:inputType="number"
+                    android:textColor="@color/Black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnimage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="0.9"
+                    android:onClick="confirmInputBuku"
+                    android:background="@color/DodgerBlue"
+                    android:text="Insert Image" />
+
+                <Button
+                    android:id="@+id/btnaddbook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:alpha="0.9"
+                    android:onClick="confirmTambahBuku"
+                    android:background="@color/DodgerBlue"
+                    android:text="Add Book" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:src="@drawable/kotak"
+            android:layout_gravity="center"
+            android:alpha="0.3"/>
+
+
+    </FrameLayout>
+
+</RelativeLayout>

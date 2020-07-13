@@ -3,11 +3,14 @@ package com.example.belajarandroid.tab;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +25,7 @@ import com.example.belajarandroid.rest.ApiClient;
 import com.example.belajarandroid.rest.ApiInterface;
 import com.example.belajarandroid.utils.AppService;
 import com.example.belajarandroid.utils.Utility;
+import com.google.android.material.textfield.TextInputLayout;
 
 
 import retrofit2.Call;
@@ -35,11 +39,14 @@ import static com.example.belajarandroid.R.string.invalid_name;
 public class Login extends AppCompatActivity {
 
     private Retrofit retrofit;
-    EditText username, password;
-    Button btnlogin;
+    private TextInputLayout username;
+    private TextInputLayout password;
     TextView btnsignup;
 
     AwesomeValidation awesomeValidation;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +56,15 @@ public class Login extends AppCompatActivity {
         Utility.askPermission(this);
         retrofit = ApiClient.initializeRetrofit();
 
-        username = (EditText) findViewById(R.id.textusername);
-        password = (EditText) findViewById(R.id.textpassword);
-        btnlogin = (Button) findViewById(R.id.buttonlogin);
-        btnsignup =  findViewById(R.id.buttonsignup);
+        RelativeLayout relativeLayout = findViewById(R.id.login);
+        AnimationDrawable animationDrawable =(AnimationDrawable) relativeLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
 
+        username =  findViewById(R.id.textusername);
+        password =  findViewById(R.id.textpassword);
+        btnsignup =  findViewById(R.id.buttonsignup);
 
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,27 +74,59 @@ public class Login extends AppCompatActivity {
                 finish();
             }
         });
-
-
-        btnlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//
-//
-                if (username.getText().toString().length() == 0) {
-                    username.setError("username tidak boleh kosong");
-                } else if (password.getText().toString().length() == 0) {
-                    password.setError("Password tidak boleh kosong");
-                } else {
-                    Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
-                    loginSubmit(username.getText().toString(), password.getText().toString());
-
-                }
-            }
-
-
-        });
     }
+    private boolean validateUsername(){
+
+        String usernameinput = username.getEditText().getText().toString().trim();
+
+        if (usernameinput.isEmpty()){
+            username.setError("Field can't be empty");
+            return false;
+        } else if (usernameinput.length()> 15) {
+            username.setError("Username too long");
+            return false;
+        }  else {
+            username.setError(null);
+            return true;
+        }
+
+
+    }
+
+    private boolean validatePassword(){
+
+        String passwordinput = password.getEditText().getText().toString().trim();
+
+        if (passwordinput.isEmpty()){
+            password.setError("Field can't be empty");
+            return false;
+        } else  {
+            password.setError(null);
+            return true;
+        }
+
+
+    }
+
+
+    public void confirmInput(View v) {
+
+        if (!validateUsername() | !validatePassword()) {
+            return;
+        }
+
+        String input = "name: " + username.getEditText().getText().toString();
+        input += "\n";
+        input += "Password: " + password.getEditText().getText().toString();
+        input += "\n";
+
+        Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
+        loginSubmit(username.getEditText().getText().toString(), password.getEditText().getText().toString());
+
+
+    }
+
+
 
 
     private void loginSubmit(String userName, String password) {
