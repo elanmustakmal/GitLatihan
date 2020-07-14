@@ -25,7 +25,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="595dp"
+            android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:background="@color/White"
             android:orientation="vertical"
@@ -126,39 +126,51 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="270dp"
+                android:layout_height="107dp"
                 android:orientation="horizontal">
 
+
                 <Button
-                    android:id="@+id/btnimage"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/btnaddimage"
+                    android:layout_width="194dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:alpha="0.9"
-                    android:onClick="confirmInputBuku"
                     android:background="@color/DodgerBlue"
                     android:text="Insert Image" />
 
-                <Button
-                    android:id="@+id/btnaddbook"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                <ImageView
+                    android:id="@+id/gambarbuku"
+                    android:layout_width="194dp"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
-                    android:alpha="0.9"
-                    android:onClick="confirmTambahBuku"
-                    android:background="@color/DodgerBlue"
-                    android:text="Add Book" />
+                    android:alpha="0.3"
+                    android:src="@drawable/kotak" />
+
+
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btnaddbook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:alpha="0.9"
+                android:background="@color/DodgerBlue"
+                android:text="Add Book" />
+
 
         </LinearLayout>
 
+
+
         <ImageView
             android:layout_width="300dp"
-            android:layout_height="400dp"
+            android:layout_height="600dp"
             android:src="@drawable/kotak"
-            android:layout_gravity="center"
+            android:layout_gravity="center|bottom"
             android:alpha="0.3"/>
 
 

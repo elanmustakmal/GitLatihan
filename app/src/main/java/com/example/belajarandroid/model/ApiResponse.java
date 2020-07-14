@@ -1,6 +1,9 @@
 package com.example.belajarandroid.model;
 
-public class Book {
+import com.example.belajarandroid.utils.Record;
+
+public class ApiResponse {
+
     private int id;
     private String judul;
     private String penerbit;
@@ -9,15 +12,9 @@ public class Book {
     private int userid;
     private String tahun;
     private String thumb;
-
-    public Book() {
-    }
-
-    public Book(String judul, String penerbit, String penulis) {
-        this.judul = judul;
-        this.penerbit = penerbit;
-        this.penulis = penulis;
-    }
+    private  boolean success;
+    private Record record;
+    private String token;
 
     public int getId() {
         return id;
@@ -67,14 +64,6 @@ public class Book {
         this.userid = userid;
     }
 
-    public String getThumb() {
-        return thumb;
-    }
-
-    public void setThumb(String thumb) {
-        this.thumb = thumb;
-    }
-
     public String getTahun() {
         return tahun;
     }
@@ -83,7 +72,40 @@ public class Book {
         this.tahun = tahun;
     }
 
-    public Book(int id, String judul, String penerbit, String penulis, int harga, int userid, String tahun, String thumb) {
+    public String getThumb() {
+        return thumb;
+    }
+
+    public void setThumb(String thumb) {
+        this.thumb = thumb;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public Record getRecord() {
+        return record;
+    }
+
+    public void setRecord(Record record) {
+        this.record = record;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public ApiResponse(int id, String judul, String penerbit, String penulis, int harga, int userid,
+                       String tahun, String thumb, boolean success, Record record, String token) {
         this.id = id;
         this.judul = judul;
         this.penerbit = penerbit;
@@ -92,5 +114,12 @@ public class Book {
         this.userid = userid;
         this.tahun = tahun;
         this.thumb = thumb;
+        this.success = success;
+        this.record = record;
+        this.token = token;
+    }
+
+    public ApiResponse() {
+
     }
 }

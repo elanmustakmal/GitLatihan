@@ -55,24 +55,4 @@ public class RecyclerViewBuku extends AppCompatActivity {
 
             };
 
-//    private void openFragmentBuku() {
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//        FragmentBuku strCode = new FragmentBuku();
-//        fragmentTransaction.replace(R.id.content, strCode, "fragment buku");
-//        fragmentTransaction.commit();
-//    }
-//
-//    private void tambahBukuFragment() {
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//        AddFragment strCode = new AddFragment();
-//        fragmentTransaction.replace(R.id.content, strCode, "add fragment");
-//        fragmentTransaction.commit();
-//    }
-
-
-
 }

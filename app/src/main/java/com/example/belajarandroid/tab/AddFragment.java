@@ -1,27 +1,37 @@
 package com.example.belajarandroid.tab;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.belajarandroid.R;
+import com.example.belajarandroid.model.ApiResponse;
 import com.example.belajarandroid.model.Book;
 import com.example.belajarandroid.rest.ApiClient;
 import com.example.belajarandroid.rest.ApiInterface;
+import com.example.belajarandroid.utils.AppService;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,8 +44,13 @@ import retrofit2.Retrofit;
 
 public class AddFragment extends Fragment implements View.OnClickListener {
 
+    public static final int PICK_IMAGE = 1;
+    private String base64Image = "";
+
     private TextInputLayout judul, penerbit, penulis, tahun, harga;
     Button addimage, addbook;
+    ImageView imageView;
+    Uri uri;
 
     private View view;
     private Retrofit retrofit;
@@ -64,9 +79,11 @@ public class AddFragment extends Fragment implements View.OnClickListener {
         penulis = view.findViewById(R.id.textpenulis);
         tahun = view.findViewById(R.id.texttahun);
         harga = view.findViewById(R.id.harga);
-        addimage = view.findViewById(R.id.btnimage);
-        Button addbook = view.findViewById(R.id.btnaddbook);
+        addimage = view.findViewById(R.id.btnaddimage);
+        imageView = view.findViewById(R.id.gambarbuku);
+        addbook = view.findViewById(R.id.btnaddbook);
         addbook.setOnClickListener(this);
+        addimage.setOnClickListener(this);
         return view;
 
     }
@@ -156,86 +173,94 @@ public class AddFragment extends Fragment implements View.OnClickListener {
 
     }
 
-//    public void confirmTambahBuku (View v) {
-//
-//        if (!validatejudul() | !validatepenulis() | validatepenerbit() | validatetahun() | validateharga()) {
-//            return;
-//        }
-//
-//        String input = "name: " + judul.getEditText().getText().toString();
-//        input += "\n";
-//        input += "Password: " + penulis.getEditText().getText().toString();
-//        input += "\n";
-//        input += "Password: " + penerbit.getEditText().getText().toString();
-//        input += "\n";
-//        input += "Password: " + tahun.getEditText().getText().toString();
-//        input += "\n";
-//        input += "Password: " + harga.getEditText().getText().toString();
-//        input += "\n";
-//
-//        Toast.makeText(getContext(), input, Toast.LENGTH_SHORT).show();
-//
-//
-//    }
 
-    private void bukuSubmit(String judul, String penerbit, String penulis, int tahun, int harga) {
+    private void setAddimage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
+    }
 
-        final Book book = new Book(judul, penerbit, penulis, tahun, harga);
+    private String encodeImage(Bitmap bm) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG, 60, baos);
+        byte[] b = baos.toByteArray();
+        String encImage = Base64.encodeToString(b, Base64.DEFAULT);
+        return encImage;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PICK_IMAGE) {
+            Uri uri = data.getData();
+            InputStream imageStream;
+            String encodedImage = "";
+
+            try {
+                imageStream = getContext().getContentResolver().openInputStream(uri);
+                Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                encodedImage = encodeImage(selectedImage);
+                imageView.setImageURI(uri);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            base64Image = encodedImage;
+        }
+    }
+
+    private void sendData(String judul, String penulis, String penerbit, String tahun, String harga) {
+        Book book = new Book();
+        book.setHarga(Integer.valueOf(harga));
+        book.setJudul(judul);
+        book.setPenulis(penulis);
+        book.setPenerbit(penerbit);
+        book.setTahun(tahun);
+        book.setThumb(base64Image);
 
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<ResponseBody> result = apiInterface.getResultInput(book);
-
-        result.enqueue(new Callback<ResponseBody>() {
+        Call<ApiResponse> result = apiInterface.insertNewBook(AppService.getToken(), book);
+        result.enqueue(new Callback<ApiResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                try {Map<String, Object> retMap = new Gson().fromJson(response.body().string(),
-                        new TypeToken<HashMap<String, Object>>(){
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
 
-                        }.getType());
-                    boolean success = (boolean) retMap.get("Success");
-                    if (success) {
-                        Log.e("TAG", "Login Success" + response.body().toString());
-                        Intent mainIntent = new Intent(getActivity(), RecyclerViewBuku.class);
-                        startActivity(mainIntent);
-//                        finish();
-
+                    if (response.body().isSuccess()) {
+                        Log.e("TAG", "Input Success");
                     } else {
                         Log.e("TAG", "Input Gagal" + response.body().toString());
-                        Toast.makeText(getActivity(), "Input Error", Toast.LENGTH_SHORT).show();
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
                 t.printStackTrace();
 
             }
         });
 
-
     }
+
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnaddbook :
                 if (!validatejudul() | !validatepenulis() | validatepenerbit() | validatetahun() | validateharga()) {
-                    Toast.makeText(getActivity(), "Input Success", Toast.LENGTH_SHORT).show();
+                    sendData(judul.getEditText().getText().toString(), penulis.getEditText().getText().toString(), penerbit.getEditText().getText().toString(),tahun.getEditText().getText().toString(),
+                            harga.getEditText().getText().toString());
+                      Toast.makeText(getActivity(), "Input Success", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                String input = "name: " + judul.getEditText().getText().toString();
+                String input = "judul: " + judul.getEditText().getText().toString();
                 input += "\n";
-                input += "Password: " + penulis.getEditText().getText().toString();
+                input += "Penulis: " + penulis.getEditText().getText().toString();
                 input += "\n";
-                input += "Password: " + penerbit.getEditText().getText().toString();
+                input += "Penerbit: " + penerbit.getEditText().getText().toString();
                 input += "\n";
-                input += "Password: " + tahun.getEditText().getText().toString();
+                input += "tahun: " + tahun.getEditText().getText().toString();
                 input += "\n";
-                input += "Password: " + harga.getEditText().getText().toString();
+                input += "harga: " + harga.getEditText().getText().toString();
                 input += "\n";
 
                 Toast.makeText(getContext(), input, Toast.LENGTH_SHORT).show();
@@ -245,5 +270,20 @@ public class AddFragment extends Fragment implements View.OnClickListener {
 
         }
 
+        switch (view.getId()){
+            case R.id.btnaddimage :
+                if (!validatejudul() | !validatepenulis() | validatepenerbit() | validatetahun() | validateharga()) {
+                    setAddimage();
+
+                    Toast.makeText(getActivity(), "Input Success", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+//
+
+               break;
+        }
+
+
     }
+
 }
