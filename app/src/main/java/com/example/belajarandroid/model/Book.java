@@ -10,13 +10,33 @@ public class Book {
     private String tahun;
     private String thumb;
 
+
     public Book() {
     }
 
-    public Book(String judul, String penerbit, String penulis) {
+    public Book(String judul, String penulis, String penerbit) {
         this.judul = judul;
         this.penerbit = penerbit;
         this.penulis = penulis;
+    }
+
+    public Book(String judul, String penerbit, String penulis, int harga, int userid, String thumb, String tahun) {
+        this.judul = judul;
+        this.penerbit = penerbit;
+        this.penulis = penulis;
+        this.harga = harga;
+        this.userid = userid;
+        this.thumb = thumb;
+        this.tahun = tahun;
+    }
+
+    public Book(int id, String judul, String penerbit, String penulis, int harga, int userid) {
+        this.id = id;
+        this.judul = judul;
+        this.penerbit = penerbit;
+        this.penulis = penulis;
+        this.harga = harga;
+        this.userid = userid;
     }
 
     public int getId() {
@@ -75,6 +95,7 @@ public class Book {
         this.thumb = thumb;
     }
 
+
     public String getTahun() {
         return tahun;
     }
@@ -83,14 +104,17 @@ public class Book {
         this.tahun = tahun;
     }
 
-    public Book(int id, String judul, String penerbit, String penulis, int harga, int userid, String tahun, String thumb) {
-        this.id = id;
-        this.judul = judul;
-        this.penerbit = penerbit;
-        this.penulis = penulis;
-        this.harga = harga;
-        this.userid = userid;
-        this.tahun = tahun;
-        this.thumb = thumb;
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", judul='" + judul + '\'' +
+                ", penerbit='" + penerbit + '\'' +
+                ", penulis='" + penulis + '\'' +
+                ", harga=" + harga +
+                ", userid=" + userid +
+                ", tahun=" + tahun +
+                ", thumb='" + thumb + '\'' +
+                '}';
     }
 }

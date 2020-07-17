@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="4dp"
     android:elevation="20dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    android:id="@+id/list_buku">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,13 +23,15 @@
             android:src="@mipmap/ic_launcher" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="298dp"
+            android:layout_height="76dp"
             android:layout_alignTop="@id/thumb"
             android:layout_marginLeft="16dp"
             android:layout_toEndOf="@id/thumb"
             android:layout_toRightOf="@id/thumb"
             android:orientation="vertical">
+
+
 
             <TextView
                 android:id="@+id/judul"
@@ -38,7 +41,7 @@
                 android:maxLines="1"
                 android:padding="2dp"
                 android:textColor="@color/colorPrimary"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/penulis"
@@ -47,7 +50,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:padding="2dp"
-                android:textSize="13sp"/>
+                android:textSize="13sp" />
 
         </LinearLayout>
 

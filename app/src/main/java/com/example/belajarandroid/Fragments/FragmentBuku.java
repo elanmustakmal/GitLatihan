@@ -1,4 +1,4 @@
-package com.example.belajarandroid.tab;
+package com.example.belajarandroid.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.example.belajarandroid.R;
 import com.example.belajarandroid.adapter.BookAdapter;
@@ -44,6 +43,7 @@ public class FragmentBuku extends Fragment {
 
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +62,8 @@ public class FragmentBuku extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
+
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -109,13 +111,14 @@ public class FragmentBuku extends Fragment {
             bookAdapter.setId(books.getId());
             bookAdapter.setJudul(books.getJudul());
             bookAdapter.setPenulis(books.getPenulis());
+            bookAdapter.setPenerbit(books.getPenerbit());
+            bookAdapter.setHarga(String.valueOf(books.getHarga()));
+            bookAdapter.setTahun(books.getTahun());
             bookAdapter.setThumb(books.getThumb());
             bookAdapterList.add(bookAdapter);
         }
 
         memberListAdapter.addAll(bookAdapterList);
     }
-
-
 
 }

@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:id="@+id/fragmentadd"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".tab.AddFragment">
+    android:background="@drawable/gradient_list"
+    tools:context=".Fragments.AddFragment">
 
     <TextView
         android:id="@+id/haloblank"
@@ -19,17 +20,23 @@
     <FrameLayout
         android:id="@+id/frameadd"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-<!--        android:padding="10dp"-->
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp">
 
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="297dp"
             android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:background="@color/White"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/White"
+            android:background="@drawable/rounded_corners"
             android:orientation="vertical"
-            android:padding="70dp">
+            android:padding="15dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textjudulbuku"
@@ -136,6 +143,7 @@
                     android:layout_width="194dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:alpha="0.9"
                     android:background="@color/DodgerBlue"
@@ -147,7 +155,7 @@
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     android:alpha="0.3"
-                    android:src="@drawable/kotak" />
+                    android:src="@drawable/ic_baseline_image_search_24" />
 
 
             </LinearLayout>
@@ -165,13 +173,13 @@
         </LinearLayout>
 
 
-
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="600dp"
-            android:src="@drawable/kotak"
-            android:layout_gravity="center|bottom"
-            android:alpha="0.3"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:alpha="0.3"
+            android:src="@drawable/kotak" />
 
 
     </FrameLayout>

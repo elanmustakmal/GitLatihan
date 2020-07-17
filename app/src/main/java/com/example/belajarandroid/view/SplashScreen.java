@@ -35,7 +35,7 @@ public class SplashScreen extends AppCompatActivity {
                 LinearLayout linearLayout = findViewById(R.id.splash);
                 AnimationDrawable animationDrawable =(AnimationDrawable) linearLayout.getBackground();
                 animationDrawable.setEnterFadeDuration(1000);
-                animationDrawable.setExitFadeDuration(1000);
+                animationDrawable.setExitFadeDuration(2000);
                 animationDrawable.start();
                 Intent panggil = new Intent(SplashScreen.this, Login.class);
                 startActivity(panggil);

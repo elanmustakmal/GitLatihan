@@ -1,4 +1,4 @@
-package com.example.belajarandroid.tab;
+package com.example.belajarandroid.Fragments;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -70,8 +70,6 @@ public class AddFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_add, container, false);
         initRetrofit();
-        tambahData();
-
 //        chart = v.findViewById(R.id.chart);
 
         judul = view.findViewById(R.id.textjudulbuku);
@@ -84,6 +82,7 @@ public class AddFragment extends Fragment implements View.OnClickListener {
         addbook = view.findViewById(R.id.btnaddbook);
         addbook.setOnClickListener(this);
         addimage.setOnClickListener(this);
+
         return view;
 
     }
@@ -91,12 +90,6 @@ public class AddFragment extends Fragment implements View.OnClickListener {
     private void initRetrofit() {
         retrofit = ApiClient.initializeRetrofit();
     }
-
-    private void tambahData() {
-
-
-    }
-
 
     private boolean validatejudul() {
 
