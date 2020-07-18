@@ -3,6 +3,8 @@ package com.example.belajarandroid.tab;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,8 +17,10 @@ import android.widget.ImageButton;
 
 import com.example.belajarandroid.Fragments.AddFragment;
 import com.example.belajarandroid.Fragments.FragmentBuku;
+import com.example.belajarandroid.Fragments.ViewFragment;
 import com.example.belajarandroid.R;
 import com.example.belajarandroid.adapter.MemberListAdapter;
+import com.example.belajarandroid.model.Book;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import retrofit2.Retrofit;
@@ -33,6 +37,8 @@ public class RecyclerViewBuku extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+
 
 
     }
@@ -60,5 +66,32 @@ public class RecyclerViewBuku extends AppCompatActivity {
                 }
 
             };
+
+    public void openHomeFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentBuku strcode = new FragmentBuku();
+        fragmentTransaction.replace(R.id.content, strcode, "fragment buku");
+        fragmentTransaction.commit();
+    }
+
+    public void openAddFragment(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        AddFragment addFragment = new AddFragment();
+        fragmentTransaction.replace(R.id.content, addFragment, "fragment tambah");
+        fragmentTransaction.commit();
+    }
+
+    public void openViewFragment(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        ViewFragment viewFragment = new ViewFragment();
+        fragmentTransaction.replace(R.id.content, viewFragment, "fragment view");
+        fragmentTransaction.commit();
+    }
+
+
+
 
 }

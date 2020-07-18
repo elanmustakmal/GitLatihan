@@ -25,6 +25,7 @@ import com.example.belajarandroid.model.Book;
 import com.example.belajarandroid.rest.ApiClient;
 import com.example.belajarandroid.rest.ApiInterface;
 import com.example.belajarandroid.utils.AppService;
+import com.example.belajarandroid.utils.DialogUtility;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -215,6 +216,8 @@ public class AddFragment extends Fragment implements View.OnClickListener {
         result.enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+
+                DialogUtility.closeAllDialog();
 
                     if (response.body().isSuccess()) {
                         Log.e("TAG", "Input Success");

@@ -23,8 +23,19 @@
             android:src="@mipmap/ic_launcher" />
 
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignTop="@id/thumb"
+            android:layout_marginLeft="16dp"
+            android:layout_toEndOf="@id/thumb"
+            android:layout_toRightOf="@id/thumb"
+            >
+
+        <LinearLayout
             android:layout_width="298dp"
             android:layout_height="76dp"
+            android:layout_weight="1"
             android:layout_alignTop="@id/thumb"
             android:layout_marginLeft="16dp"
             android:layout_toEndOf="@id/thumb"
@@ -51,6 +62,15 @@
                 android:maxLines="1"
                 android:padding="2dp"
                 android:textSize="13sp" />
+
+        </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/listdelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_baseline_delete_24"/>
 
         </LinearLayout>
 

@@ -15,6 +15,15 @@ public class ApiResponse {
     private  boolean success;
     private Record record;
     private String token;
+    private String message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public int getId() {
         return id;

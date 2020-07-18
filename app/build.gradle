@@ -39,6 +39,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview-selection:1.1.0-rc01'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
     implementation 'com.basgeekball:awesome-validation:4.2'
+    implementation 'com.airbnb.android:lottie:3.4.1'
 
 
 

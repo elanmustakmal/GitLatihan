@@ -50,7 +50,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/Black"
+                    android:backgroundTint="@android:color/transparent"
                     android:hint="Judul Buku"
                     android:inputType="text"
                     android:textColor="@color/Black" />
@@ -68,7 +68,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/Black"
+                    android:backgroundTint="@android:color/transparent"
                     android:hint="Penulis"
                     android:inputType="text"
                     android:textColor="@color/Black" />
@@ -86,7 +86,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/Black"
+                    android:backgroundTint="@android:color/transparent"
                     android:hint="Penerbit"
                     android:inputType="text"
                     android:textColor="@color/Black" />
@@ -107,7 +107,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/Black"
+                    android:backgroundTint="@android:color/transparent"
                     android:hint="Tahun"
                     android:inputType="number"
                     android:textColor="@color/Black" />
@@ -125,7 +125,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/Black"
+                    android:backgroundTint="@android:color/transparent"
                     android:hint="Harga"
                     android:inputType="number"
                     android:textColor="@color/Black" />
@@ -136,6 +136,14 @@
                 android:layout_width="270dp"
                 android:layout_height="107dp"
                 android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/gambarbuku"
+                    android:layout_width="194dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:alpha="0.3"
+                    android:src="@drawable/ic_baseline_image_search_24" />
 
 
                 <Button
@@ -148,15 +156,6 @@
                     android:alpha="0.9"
                     android:background="@color/DodgerBlue"
                     android:text="Insert Image" />
-
-                <ImageView
-                    android:id="@+id/gambarbuku"
-                    android:layout_width="194dp"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:alpha="0.3"
-                    android:src="@drawable/ic_baseline_image_search_24" />
-
 
             </LinearLayout>
 
@@ -173,13 +172,13 @@
         </LinearLayout>
 
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:padding="10dp"
-            android:alpha="0.3"
-            android:src="@drawable/kotak" />
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:padding="10dp"-->
+<!--            android:alpha="0.3"-->
+<!--            android:src="@drawable/kotak" />-->
 
 
     </FrameLayout>

@@ -19,6 +19,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -43,10 +44,13 @@ public interface ApiInterface {
     @POST("api/buku")
     Call<ApiResponse> insertNewBook(@Header("Authorization") String token, @Body Book book);
 
-    @GET("api/buku/byID/{id}")
+    @GET("api/buku/byId/{id}")
     Call<BookResult> getBookById(@Header("Authorization") String token, @Path("id") int id);
 
     @DELETE("api/buku")
     Call<ApiResponse> deleteBook(@Header("Authorization") String token, @Query("id") int id);
+
+    @PUT("api/buku")
+    Call<ApiResponse> updateBook(@Header("Authorization") String token, @Body Book body);
 
 }

@@ -7,7 +7,7 @@ import com.example.belajarandroid.utils.Record;
 public class BookResult {
 
     private boolean success;
-    private Record record;
+    private Book record;
     private String message;
 
     public boolean isSuccess() {
@@ -18,11 +18,11 @@ public class BookResult {
         this.success = success;
     }
 
-    public Record getRecord() {
+    public Book getRecord() {
         return record;
     }
 
-    public void setRecord(Record record) {
+    public void setRecord(Book record) {
         this.record = record;
     }
 
@@ -34,9 +34,18 @@ public class BookResult {
         this.message = message;
     }
 
-    public BookResult(boolean success, Record record, String message) {
+    public BookResult(boolean success, Book record, String message) {
         this.success = success;
         this.record = record;
         this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return "BookResult{" +
+                "success=" + success +
+                ", record=" + record +
+                ", message='" + message + '\'' +
+                '}';
     }
 }
